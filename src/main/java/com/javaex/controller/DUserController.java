@@ -55,10 +55,15 @@ public class DUserController {
 		
 		return "redirect:/main";
 }
-	
+	/*로그아웃*/
+	@RequestMapping(value="/user/logout",method= {RequestMethod.GET, RequestMethod.POST})
+	public String logout(HttpSession session) {
+		System.out.println("UserController.logout");
 		
-		/*아이디체크*/
+		session.invalidate();
+		return "redirect:/main";
+		}
+
+	}	
 	
-	
-	}
 
