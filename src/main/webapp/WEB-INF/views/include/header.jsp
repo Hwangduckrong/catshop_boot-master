@@ -26,8 +26,9 @@
             
            <c:if test="${sessionScope.authUser == null}">
             <div class="menu">
-                <button>로그인</button>
-                <button>회원가입</button>
+            <br>
+               <a href="${pageContext.request.contextPath}/user/loginform" id="logoutBtn" class="button">로그인</a>
+               <a href="${pageContext.request.contextPath}/user/joinform" id="logoutBtn" class="button">회원가입</a>
             </div>
         	</c:if>
         	

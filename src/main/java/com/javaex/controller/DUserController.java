@@ -64,6 +64,8 @@ public class DUserController {
 		return "redirect:/main";
 		}
 
+	/* 수정*/
+	
 	}	
 	
 
