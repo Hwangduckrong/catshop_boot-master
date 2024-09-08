@@ -2,6 +2,7 @@ package com.javaex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,8 +65,25 @@ public class DUserController {
 		return "redirect:/main";
 		}
 
-	/* 수정*/
+	/* 수정폼*/
+	@RequestMapping(value="/user/updateform",method= {RequestMethod.GET, RequestMethod.POST})
+	public String update(@ModelAttribute UserVo userVo, HttpSession session, Model model) {
+		System.out.println("updateform");
+		
+		UserVo authUser = (UserVo) session.getAttribute("authUser");
+		
+		int no = authUser.getNo();
+		
+		UserVo updateUser = duserService.exeupdateForm(no);
+		
+		model.addAttribute("UpdateUser", updateUser);
 	
-	}	
+		return"/user/updateForm";
+	}
+
+	
+}
+
+	
 	
 

@@ -32,5 +32,12 @@ public class DUserService {
 		
 		return authUser;
 	}
+	
+	public UserVo exeupdateForm(int no) {
+		System.out.println("Service.exeupdateForm");
+		UserVo updateUserForm = duserDao.updateUserForm(no);
+	
+		return updateUserForm;
+	}
 }	
 	

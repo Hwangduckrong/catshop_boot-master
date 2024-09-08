@@ -31,5 +31,11 @@ public class DUserDao {
 		
 	}
 	
+	public UserVo updateUserForm(int no) {
+		UserVo updateUserForm=sqlSession.selectOne("user.selectUpdate", no);
+	
+		return updateUserForm;	
+	}
+	
 }
 
