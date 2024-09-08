@@ -37,5 +37,10 @@ public class DUserDao {
 		return updateUserForm;	
 	}
 	
+	public int updateUser(UserVo userVo) {
+		int count=sqlSession.update("user.updateUser", userVo);
+		
+		return count;
+	}
 }
 

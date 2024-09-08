@@ -29,13 +29,32 @@
 	<select id="selectUpdate" parameterType="int" resultType="com.javaex.vo.UserVo">
 		<![CDATA[
 			select no
-				,id
-				,password
-				,name
+				  ,id
+				  ,password
+				  ,name
 			from user
 			where no = #{no}
 		]]>
 	</select>
+	
+	
+	
+	
+	<update id="updateUser" parameterType="com.javaex.vo.UserVo">
+	<![CDATA[
+		
+    UPDATE user
+    <set>
+        <if test="id != null">id = #{id},</if>
+        <if test="password != null">password = #{password},</if>
+        <if test="address != null">address = #{address},</if>
+        <if test="hp != null">hp = #{hp},</if>
+
+    </set>
+    WHERE no = #{no}
+
+		]]>
+	</update>
 	
 	
 	</mapper>

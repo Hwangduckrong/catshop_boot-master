@@ -67,8 +67,8 @@ public class DUserController {
 
 	/* 수정폼*/
 	@RequestMapping(value="/user/updateform",method= {RequestMethod.GET, RequestMethod.POST})
-	public String update(@ModelAttribute UserVo userVo, HttpSession session, Model model) {
-		System.out.println("updateform");
+	public String updateForm(@ModelAttribute UserVo userVo, HttpSession session, Model model) {
+		System.out.println("UserController.updateform");
 		
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		
@@ -81,6 +81,22 @@ public class DUserController {
 		return"/user/updateForm";
 	}
 
+	/*수정*/
+	@RequestMapping(value="user/update", method= {RequestMethod.GET, RequestMethod.POST})
+	public String update(@ModelAttribute UserVo userVo, HttpSession session) {
+		System.out.println("UserController.update");
+		
+		UserVo authUser = (UserVo)session.getAttribute("authUser");
+		int no=authUser.getNo();
+		System.out.println(no);
+		userVo.setNo(no);
+		System.out.println(userVo);
+		
+		duserService.exeUpdate(userVo);
+		authUser.setName(userVo.getName());
+		
+			 return"redirect:/main";
+	}
 	
 }
 

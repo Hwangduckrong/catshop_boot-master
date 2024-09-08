@@ -32,12 +32,19 @@ public class DUserService {
 		
 		return authUser;
 	}
-	
+	/*수정 폼*/
 	public UserVo exeupdateForm(int no) {
 		System.out.println("Service.exeupdateForm");
 		UserVo updateUserForm = duserDao.updateUserForm(no);
 	
 		return updateUserForm;
+	}
+	/*수정*/
+	public int exeUpdate(UserVo userVo) {
+		int count = duserDao.updateUser(userVo);
+		
+		return count;
+		
 	}
 }	
 	
